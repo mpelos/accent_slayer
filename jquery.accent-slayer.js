@@ -48,7 +48,7 @@
       "ç": "c"
     };
 
-    return this.bind("input", function() {
+    return this.on("input", function() {
       var text = "";
 
       for(var i = 0; i < $(this).val().length; i += 1) {
