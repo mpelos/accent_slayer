@@ -9,4 +9,4 @@ And there is more. It's totally free and with tax.
 Usage
 -----
 
-    $(input[type=text]).accentSlayer();
+    $("input[type=text]").accentSlayer();
