@@ -6,6 +6,8 @@ Your problems are solved.
 Behold the fantanstic and revolutionary ACCENT SLAYER. With it you can remove ALL the accented characters while you are typing. It is too fast that you can never see an accented character.
 And there is more. It's totally free and without tax.
 
+IT IS TOTALLY EXCELLENT.
+
 Usage
 -----
 
