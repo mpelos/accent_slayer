@@ -49,14 +49,15 @@
     };
 
     return this.on("input", function() {
-      var text = "";
+      var chars = [];
 
       for(var i = 0; i < $(this).val().length; i += 1) {
         char = $(this).val()[i];
-        text += accentMap[char] || char;
+        chars.push(accentMap[char] || char);
       };
 
-      $(this).val(text);
+      $(this).val(chars.join(""));
     });
   }
 })(jQuery);
+
