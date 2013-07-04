@@ -1,4 +1,36 @@
-(function($){
+(function($) {
+  var getCaretPosition = function(element) {
+    var posistion = 0;
+
+    if('selectionStart' in element) {
+      position = element.selectionStart;
+    } else if('selection' in document) {
+      element.focus();
+      var selection = document.selection.createRange();
+      var selectionLength = document.selection.createRange().text.length;
+      selection.moveStart('character', -element.value.length);
+      position = selection.text.length - selectionLength;
+    }
+
+    return position;
+  }
+
+  var setCaretPosition = function(element, position) {
+    if(element.createTextRange) {
+      var range = element.createTextRange();
+      range.move('character', position);
+      range.select();
+    }
+    else {
+      if(element.selectionStart) {
+        element.focus();
+        element.setSelectionRange(position, position);
+      }
+      else
+        element.focus();
+    }
+  };
+
   jQuery.fn.accentSlayer = function() {
     var accentMap = {
       "Á": "A",
@@ -49,15 +81,20 @@
     };
 
     return this.on("input", function() {
-      var chars = [];
+      var newContentIndex,
+          selectionStart,
+          chars = [];
 
       for(var i = 0; i < $(this).val().length; i += 1) {
         char = $(this).val()[i];
         chars.push(accentMap[char] || char);
       };
 
+      var caretPosition = getCaretPosition(this);
+
       $(this).val(chars.join(""));
+
+      setCaretPosition(this, caretPosition);
     });
   }
 })(jQuery);
-
