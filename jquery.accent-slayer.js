@@ -82,7 +82,7 @@
 
     return this.on("input", function() {
       var newContentIndex,
-          selectionStart,
+          caretPosition
           chars = [];
 
       for(var i = 0; i < $(this).val().length; i += 1) {
@@ -90,7 +90,7 @@
         chars.push(accentMap[char] || char);
       };
 
-      var caretPosition = getCaretPosition(this);
+      caretPosition = getCaretPosition(this);
 
       $(this).val(chars.join(""));
 
