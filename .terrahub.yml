@@ -1,0 +1,21 @@
+## To see all available configs, please check the documentation
+## https://github.com/TerraHubCorp/terrahub/tree/master/docs
+## project config
+project:
+  name: 'mpelos/accent_slayer'
+  code: '43bdb871'
+  include:
+    - '.'
+  exclude:
+    - '**/.terraform/**'
+    - '**/node_modules/**'
+    - '**/.git/**'
+
+## terraform config
+terraform:
+  varFile:
+    - 'default.tfvars'
+#   var:
+#     region: us-east-1
+#     account_id: 123456789012
+#   version: 0.12.6
